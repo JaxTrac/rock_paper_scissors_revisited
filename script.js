@@ -29,14 +29,17 @@ function game() {
     let scorePlayer = 0;
     let scoreComputer = 0;
     for (let i = 5; i > 0; i--) {
-        let result = playRound(prompt(),getComputerChoice())
+        let result = playRound(prompt("Rock, paper or scissors?"),getComputerChoice())
         if (result == 1) {
             scorePlayer += 1; 
         } else if (result == -1) {
             scoreComputer += 1;
+        } else {
+            console.log("Draw!");
         }
+        console.log("Player: " + scorePlayer + " // Computer: " + scoreComputer + "!")
       }
-    return "Player: " + scorePlayer + " // Computer: " + scoreComputer + "!";
+    return "Final Score!!! Player: " + scorePlayer + " // Computer: " + scoreComputer + "!";
 }
 
 console.log(game());
