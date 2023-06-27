@@ -1,1 +1,1 @@
-# rock_paper_scissors_revisited
+# After a little time off I want to get back into coding. This is my attempt to complete a rock, paper, scissors game once again. 
