@@ -13,21 +13,30 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     let playerSelectionLowerCase = playerSelection.toLowerCase();
     if (playerSelectionLowerCase == computerSelection) {
-        return "Draw!"
+        return 0
     } else if (playerSelectionLowerCase == "rock" && computerSelection == "scissors"){
-        return "You win!"
+        return 1
     } else if (playerSelectionLowerCase == "paper" && computerSelection == "rock"){
-        return "You win!"
+        return 1
     }else if (playerSelectionLowerCase == "scissors" && computerSelection == "paper"){
-        return "You win!"
+        return 1
     }else {
-        return "You looose!"
+        return -1
     }
   }
    
+function game() {
+    let scorePlayer = 0;
+    let scoreComputer = 0;
+    for (let i = 5; i > 0; i--) {
+        let result = playRound(prompt(),getComputerChoice())
+        if (result == 1) {
+            scorePlayer += 1; 
+        } else if (result == -1) {
+            scoreComputer += 1;
+        }
+      }
+    return "Player: " + scorePlayer + " // Computer: " + scoreComputer + "!";
+}
 
-let test = getComputerChoice()
-
-console.log(playRound("SCISSORS", test));
-console.log(playRound("Rock", test));
-console.log(playRound("paper", test));
+console.log(game());
