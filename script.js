@@ -6,6 +6,9 @@ let rounds = 5;
 let rockButton = document.getElementById("Rock");
 let paperButton = document.getElementById("Paper");
 let scissorsButton = document.getElementById("Scissors");
+let scoreboard = document.createElement("div");
+
+document.body.appendChild(scoreboard);
 
 
 rockButton.addEventListener("click", () => {
@@ -55,5 +58,6 @@ function playRound(playerSelection, computerSelection) {
     rockButton.remove();
     paperButton.remove();
     scissorsButton.remove();
+    scoreboard.textContent = "Player: " + scorePlayer + " // Computer: " + scoreComputer;
   }
 }
