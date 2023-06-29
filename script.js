@@ -7,8 +7,10 @@ let rockButton = document.getElementById("Rock");
 let paperButton = document.getElementById("Paper");
 let scissorsButton = document.getElementById("Scissors");
 let scoreboard = document.createElement("div");
+let commentator = document.createElement("div");
 
 document.body.appendChild(scoreboard);
+document.body.appendChild(commentator);
 
 
 rockButton.addEventListener("click", () => {
@@ -40,16 +42,16 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
   let playerSelectionLowerCase = playerSelection.toLowerCase();
   if (playerSelectionLowerCase === computerSelection) {
-    console.log("Draw!");
+    commentator.textContent = "Draw!";
   } else if (
     (playerSelectionLowerCase === "rock" && computerSelection === "scissors") ||
     (playerSelectionLowerCase === "paper" && computerSelection === "rock") ||
     (playerSelectionLowerCase === "scissors" && computerSelection === "paper")
   ) {
-    console.log("You win!");
+    commentator.textContent = "You win!";
     scorePlayer += 1;
   } else {
-    console.log("You lose!");
+    commentator.textContent = "You lose!";
     scoreComputer += 1;
   }
 
@@ -58,6 +60,7 @@ function playRound(playerSelection, computerSelection) {
     rockButton.remove();
     paperButton.remove();
     scissorsButton.remove();
+    commentator.remove();
     scoreboard.textContent = "Player: " + scorePlayer + " // Computer: " + scoreComputer;
   }
 }
